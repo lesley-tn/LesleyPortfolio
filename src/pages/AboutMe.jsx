@@ -10,6 +10,8 @@ export function AboutMe() {
             <h2>I am passionate about the intersection of technology and human interaction. I enjoy creating digital solutions that are visually appealing, user-friendly, and immersive. </h2>
 
             <h1>Skills</h1>
+            
+            <h1>Skills</h1>
         </div>
     );
 }
