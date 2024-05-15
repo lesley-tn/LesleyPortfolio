@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Cambo&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+   
+  }
+  
+  #root {
+    overflow: auto;
+  }
+  
+  body {
+    background: #f0f0f0;
+  }
+  
+  .overlay {
+    display: none;
+  }
+  
+  .overlay.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    display: flex; /* Only display flex when active to show its content */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    transition: all 1s; 
+  }
+  
+  .dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    border: 2px solid white;
+  }
+  
+.fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.51s;
+  z-index: 9999;
+}
+
+.stack {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #606060;
+}
+
+.bg {
+  background: #101010;
+}
+
+
+
+.fullscreen.clicked {
+  pointer-events: none;
+  opacity: 0;
+}
+.overlay.clicked {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.close-button-container {
+  position: absolute; /* Absolute positioning relative to the closest positioned parent */
+  top: 10px; /* Adjust as needed for spacing from the top */
+  right: 10px; /* Adjust as needed for spacing from the right */
+}
+
+.catan {
+  position: absolute;
+  
+  border-radius: 10px;
+  right: 10px; 
+  width: 55%;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgb(81, 255, 240);
+}
+.catan-manual {
+  padding: 20px;
+  width: 100%;
+  height: 60%;
+  background-color: rgb(118, 243, 118);
+}
+
+/* Styles for the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #adadad; /* Handle color */
+  border-radius: 6px; /* Handle border radius */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; /* Handle color on hover */
+}
+
+.focus {
+  position: absolute;
+  border-radius: 10px;
+  right: 10px; 
+  width: 55%;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+.header img {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+
+.project-details, .about, .challenges, .design-process, .research-insights, .features-functionality, .final-design {
+  margin-bottom: 20px;
+}
+
+.First-design {
+  width: 100%;
+  align-items: center;
+  justify-content: center; 
+  
+}
+
+.First-prototype {
+  width: 420px;
+  height: 900px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+p {
+  color: #c0c0c0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.contact {
+  position: absolute;
+  border-radius: 10px;
+  right: 5%; 
+  width: 50%;
+  height: 65%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+.contact .header {
+  margin-bottom: 20px;
+}
+
+.contact .header h1 {
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  color: #ffffff;
+  text-align: center;
+}
+
+.contact .header h2 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: #ffffff;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: clamp(0.8rem, 1.5vw, 1.3rem);
+  color: #c7c7c7;
+  margin-bottom: 5px;
+}
+.form-row {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 20px; 
+}
+
+.form-group {
+  flex: 1; 
+  margin-right: 20px; 
+}
+
+.form-group:last-child {
+  margin-right: 0; 
+}
+
+form input[type="text"],
+form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+form textarea {
+  padding: 10px;
+  margin-bottom: 40px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+
+form textarea {
+  height: 100px;
+  resize: none; 
+}
+
+form input[type="submit"] {
+  width: 50px; 
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center; 
+  margin-right: 10px;
+  padding: 10px;
+}
+
+
+.contact-links a {
+  display: inline-block;
+  color: inherit; 
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.contact-links img {
+  width: 50px;  
+  height: 50px; 
+  vertical-align: middle;
+}
+
+.aboutme {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+  border-radius: 10px;
+  right: 10px;
+  width: 55%;
+  height: 98%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+}
+
+
+.cambo-regular {
+  font-family: 'Cambo', serif;
+  font-weight: 100;
+}
+
+.aboutme h2 {
+  font-weight: 100; 
+  font-size: clamp(0.8rem, 2.3vw, 1.3rem);
+  line-height: 1.6em;
+}
+
+.aboutme h2 strong {
+  font-family: 'Lora', serif; 
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 900; 
+  color: #ff8585;
+  line-height: inherit;
+}
