@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cambo&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Bubblegum+Sans&display=swap');
+
+.cambo-regular {
+  font-family: 'Cambo', serif;
+  font-weight: 100;
+}
+
+.bubblegum-sans-regular {
+  font-family: "Bubblegum Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 * {
     box-sizing: border-box;
@@ -290,7 +303,7 @@ form input[type="submit"]:hover {
   border-radius: 10px;
   right: 10px;
   width: 55%;
-  height: 98%;
+  max-height: 98%;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   color: rgb(255, 255, 255);
@@ -298,55 +311,56 @@ form input[type="submit"]:hover {
 }
 
 
-.cambo-regular {
-  font-family: 'Cambo', serif;
-  font-weight: 100;
-}
+
 
 .aboutme h1 {
   font-weight: 100; 
-  font-size: clamp(2.5rem, 4vw, 3rem);
+  font-size: clamp(2.8rem, 4.5vw, 3.3rem);
   line-height: 1.6em;
   text-align: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
 }
 
 .aboutme h2 {
-  font-weight: 800; 
-  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  font-family: "Berkshire Swash", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1.6em;
+  margin-top: 1vh;
 }
 
 .aboutme h3 {
   font-weight: 100; 
-  font-size: clamp(0.8rem, 2.3vw, 1.3rem);
-  line-height: 1.6em;
-}
-
-.aboutme h3 {
-  font-weight: 100; 
-  font-size: clamp(0.8rem, 2.3vw, 1.3rem);
-  line-height: 1.6em;
+  font-size: clamp(1rem, 2.8vw, 1.8rem);
+  line-height: 2em;
+  margin-top: 2vh;
+  margin-bottom: 8vh;
 }
 
 .aboutme h3 strong {
-  font-family: 'Lora', serif; 
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-  font-weight: 900; 
+  font-size: clamp(1.2rem, 3vw, 2rem); 
   color: #ff8585;
   line-height: inherit;
 }
 
 .skills-container {
   display: flex;
-  justify-content: space-around; /* Distributes space between items */
-  flex-wrap: wrap; /* Allows items to wrap in smaller screens */
-  padding: 20px; /* Adjust padding as necessary */
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  padding: 2vw;
+  gap: 30px;
+ 
 }
 
 .tilt-skill {
+  margin: 10px; 
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 25vw; /* 20% of the viewport width */
+  height: 25vw; /* maintains aspect ratio */
+  max-width: 150px; /* You can also set max values to prevent it from getting too large */
+  max-height: 150px;
   background-size: cover;
   margin: 10px;
   border-radius: 20px;
