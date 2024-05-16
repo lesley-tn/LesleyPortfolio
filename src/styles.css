@@ -303,16 +303,74 @@ form input[type="submit"]:hover {
   font-weight: 100;
 }
 
+.aboutme h1 {
+  font-weight: 100; 
+  font-size: clamp(2.5rem, 4vw, 3rem);
+  line-height: 1.6em;
+  text-align: center;
+}
+
 .aboutme h2 {
+  font-weight: 800; 
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  line-height: 1.6em;
+}
+
+.aboutme h3 {
   font-weight: 100; 
   font-size: clamp(0.8rem, 2.3vw, 1.3rem);
   line-height: 1.6em;
 }
 
-.aboutme h2 strong {
+.aboutme h3 {
+  font-weight: 100; 
+  font-size: clamp(0.8rem, 2.3vw, 1.3rem);
+  line-height: 1.6em;
+}
+
+.aboutme h3 strong {
   font-family: 'Lora', serif; 
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 900; 
   color: #ff8585;
   line-height: inherit;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space between items */
+  flex-wrap: wrap; /* Allows items to wrap in smaller screens */
+  padding: 20px; /* Adjust padding as necessary */
+}
+
+.tilt-skill {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  margin: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; 
+  font-size: 1.2em; 
+}
+
+.skill-label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.tilt-skill:hover .skill-label {
+  opacity: 1; 
 }
