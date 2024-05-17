@@ -1,11 +1,10 @@
 import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Physics, Debug } from '@react-three/cannon';
-import { Environment, PointerLockControls, Preload, Sky } from '@react-three/drei';
+import { Environment, PointerLockControls, Preload } from '@react-three/drei';
 import { Selection,  EffectComposer, Outline } from '@react-three/postprocessing'
 
-import PianoKeys from './components/Keys';
-import {Light, CameraControls, CameraMove, useStore} from './components'
+import {Light, CameraControls, CameraMove, useStore, PianoKeys} from './components'
 import 
     {
      Scene, 
@@ -18,7 +17,7 @@ import
 export default function App() {
 
     return (  
-        <Canvas gl={{ logarithmicDepthBuffer: true }} shadows camera={{ near:0.01, far:1000, fov: 75}}>
+        <Canvas gl={{ logarithmicDepthBuffer: true }} position={[0, -10, 0]}shadows camera={{ near:0.01, far:1000, fov: 75}}>
             <Suspense fallback= {null}>
                     <ambientLight intensity={0.5} />
                     <Light />
@@ -28,8 +27,8 @@ export default function App() {
                 <Physics >  
                   
                     <Scene scale={0.5} position={[0, -56, 10]} rotation={[0, Math.PI, 0]}/>
-                    <Piano scale={0.5} position={[0, -56, 10]} rotation={[0, Math.PI, 0]} />
-                 
+                    <Piano scale={[0.5,0.5,0.5]} position={[0, -56, 10]} rotation={[0, Math.PI, 0]} />
+                    <PianoKeys />
                     <Selection>
                         <EffectComposer multisampling={10} autoClear={false}>
                             <Outline  blur visibleEdgeColor="red" edgeStrength={10} width={1000} /> 

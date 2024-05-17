@@ -192,7 +192,7 @@ ul {
   border-radius: 10px;
   right: 5%; 
   width: 50%;
-  height: 65%;
+  
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
   color: rgb(255, 255, 255);
@@ -256,7 +256,7 @@ form textarea {
 }
 
 form textarea {
-  height: 100px;
+  height: 25ch;
   resize: none; 
 }
 
@@ -269,6 +269,7 @@ form input[type="submit"] {
   border: none;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin-bottom: 10ch;
 }
 
 form input[type="submit"]:hover {

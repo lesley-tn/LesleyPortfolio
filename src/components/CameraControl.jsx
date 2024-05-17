@@ -25,7 +25,7 @@ export function CameraControls(pointerLockRef ) {
       const forwardCollisions = forwardRaycaster.intersectObjects(scene.children, true);
       const backwardCollisions = backwardRaycaster.intersectObjects(scene.children, true);
 
-      const collisionThreshold = 20; 
+      const collisionThreshold = 25; 
 
       if (moveForward.current && (!forwardCollisions.length || forwardCollisions[0].distance > collisionThreshold)) {
         camera.position.add(forwardDirection.multiplyScalar(0.8)); 

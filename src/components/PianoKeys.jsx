@@ -1,130 +1,197 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
+import React, { useEffect, useRef, useState } from 'react';
+import { Box } from '@react-three/drei';
+import { useThree } from '@react-three/fiber';
+import { Vector3 } from 'three';
+import { CameraMove } from './CameraMove';
+import { useStore } from './index';
 
-import cChord from '../assets/audio/C-Major-Chord.mp3';
-import aChord from '../assets/audio/AMajor.wav';
-import bChord from '../assets/audio/BMajor.wav';
-import dChord from '../assets/audio/DMajor.wav';
-import eChord from '../assets/audio/EMajor.wav';
-import fChord from '../assets/audio/FMajor.wav';
-import gChord from '../assets/audio/GMajor.wav';
+const flatkeys = [
+  { note: 'Ab2', position: new Vector3(-28.35, -21.3, -74.8) },
+  { note: 'Bb2', position: new Vector3(-26.25, -21.3, -74.8) },
 
-const chordMap = {
-    C3: cChord,
-    A3: aChord,
-    B3: bChord,
-    D3: dChord,
-    E3: eChord,
-    F3: fChord,
-    G3: gChord,
+  { note: 'Db3', position: new Vector3(-22.05, -21.3, -74.8) },
+  { note: 'Eb3', position: new Vector3(-19.95, -21.3, -74.8) },
+  { note: 'Gb3', position: new Vector3(-15.75, -21.3, -74.8) },
+  { note: 'Ab3', position: new Vector3(-13.65, -21.3, -74.8) },
+  { note: 'Bb3', position: new Vector3(-11.55, -21.3, -74.8) },
+
+  { note: 'Db4', position: new Vector3(-7.35, -21.3, -74.8) },
+  { note: 'Eb4', position: new Vector3(-5.25, -21.3, -74.8) },
+  { note: 'Gb4', position: new Vector3(-1.05, -21.3, -74.8) },
+  { note: 'Ab4', position: new Vector3(1.05, -21.3, -74.8) },
+  { note: 'Bb4', position: new Vector3(3.15, -21.3, -74.8) },
+  
+  { note: 'Db5', position: new Vector3(7.35, -21.3, -74.8) },
+  { note: 'Eb5', position: new Vector3(9.45, -21.3, -74.8) },
+  { note: 'Gb5', position: new Vector3(13.65, -21.3, -74.8) },
+  { note: 'Ab5', position: new Vector3(15.75, -21.3, -74.8) },
+  { note: 'Bb5', position: new Vector3(17.85, -21.3, -74.8) },
+
+  { note: 'Db6', position: new Vector3(22.05, -21.3, -74.8) },
+  { note: 'Eb6', position: new Vector3(24.15, -21.3, -74.8) },
+
+];
+
+const naturalKeys = [
+  { note: 'G2', position: new Vector3(-29.4, -22, -73.7) },
+  { note: 'A2', position: new Vector3(-27.3, -22, -73.7) },
+  { note: 'B2', position: new Vector3(-25.2, -22, -73.7) },
+
+  { note: 'C3', position: new Vector3(-23.1, -22, -73.7) },
+  { note: 'D3', position: new Vector3(-21, -22, -73.7) },
+  { note: 'E3', position: new Vector3(-18.9, -22, -73.7) },
+  { note: 'F3', position: new Vector3(-16.8, -22, -73.7) },
+  { note: 'G3', position: new Vector3(-14.7, -22, -73.7) },
+  { note: 'A3', position: new Vector3(-12.6, -22, -73.7) },
+  { note: 'B3', position: new Vector3(-10.5, -22, -73.7) },
+
+  { note: 'C4', position: new Vector3(-8.4, -22, -73.7) },
+  { note: 'D4', position: new Vector3(-6.3, -22, -73.7) },
+  { note: 'E4', position: new Vector3(-4.2, -22, -73.7) },
+  { note: 'F4', position: new Vector3( -2.1, -22, -73.7) },
+  { note: 'G4', position: new Vector3(0, -22, -73.7) },
+  { note: 'A4', position: new Vector3(2.1, -22, -73.7) },
+  { note: 'B4', position: new Vector3(4.2, -22, -73.7) },
+
+  { note: 'C5', position: new Vector3(6.3, -22, -73.7) },
+  { note: 'D5', position: new Vector3(8.4, -22, -73.7) },
+  { note: 'E5', position: new Vector3(10.5, -22, -73.7) },
+  { note: 'F5', position: new Vector3(12.6, -22, -73.7) },
+  { note: 'G5', position: new Vector3(14.7, -22, -73.7) },
+  { note: 'A5', position: new Vector3(16.8, -22, -73.7) },
+  { note: 'B5', position: new Vector3(18.9, -22, -73.7) },
+
+  { note: 'C6', position: new Vector3(21, -22, -73.7) },
+  { note: 'D6', position: new Vector3(23.1, -22, -73.7) },
+  { note: 'E6', position: new Vector3(25.2, -22, -73.7) },
+ 
+];
+
+const naturalKeyColors = {
+  color: 'white',
+  hoverColor: '#a16da8',
+  activeColor: '#724178',
 };
 
-function PianoKey({ position, color, size, note, pressedColor = 'blue', keyTrigger }) {
-    const keyRef = useRef();
-    const [keyColor, setKeyColor] = useState(color);
-    const [listener] = React.useState(() => new THREE.AudioListener());
-    const [audio] = React.useState(() => new THREE.Audio(listener));
+const flatKeyColors = {
+  color: 'black',
+  hoverColor: '#2b4e8f',
+  activeColor: '#1d3869',
+};
 
-    useEffect(() => {
-        const audioLoader = new THREE.AudioLoader();
-        audioLoader.load(chordMap[note], function (buffer) {
-            audio.setBuffer(buffer);
-        });
+export function PianoKeys() {
+  const { camera } = useThree();
+  const store = useStore();
+  const [keyColors, setKeyColors] = useState(
+    [...naturalKeys, ...flatkeys].reduce((acc, { note }) => {
+      acc[note] = note.includes('b') ? flatKeyColors.color : naturalKeyColors.color;
+      return acc;
+    }, {})
+  );
+  const [playingNote, setPlayingNote] = useState(null);
 
-        const handleKeyDown = (event) => {
-            if (event.key === keyTrigger) {
-                keyRef.current.userData.isPressed = true;
-                setKeyColor(pressedColor);
-                setTimeout(() => setKeyColor(color), 200);
-            }
-        };
+  const audioMap = useRef(
+    Object.fromEntries(
+      [...naturalKeys, ...flatkeys].map(({ note }) => [
+        note,
+        new Audio(`/audio/pianoNotes/${note}.mp3`),
+      ])
+    )
+  );
 
-        document.addEventListener('keydown', handleKeyDown);
+  const handlePointerDown = (note) => {
+    if (playingNote) {
+      audioMap.current[playingNote].pause();
+      audioMap.current[playingNote].currentTime = 0; 
+    }
 
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [keyTrigger, color, pressedColor, audio, note]);
+    audioMap.current[note].play();
+    setPlayingNote(note);
 
-    useFrame(() => {
-        if (keyRef.current.userData.isPressed && !audio.isPlaying) {
-            if (PianoKey.currentlyPlaying && PianoKey.currentlyPlaying !== audio) {
-                PianoKey.currentlyPlaying.stop();
-            }
+    const keyColorType = note.includes('b') ? flatKeyColors : naturalKeyColors;
+    setKeyColors((prevColors) => ({
+      ...prevColors,
+      [note]: keyColorType.activeColor,
+    }));
+  };
 
-            audio.play();
-            keyRef.current.userData.isPressed = false;
-            PianoKey.currentlyPlaying = audio;
-        }
-    });
-  
-  
-    return (
-      <mesh position={position} ref={keyRef}>
-         <boxGeometry args={size} />
-         <meshStandardMaterial color={keyColor} />
-      </mesh>
-    );
-}  
-  
-PianoKey.currentlyPlaying = null;
-  
-export default function PianoKeys() {
-    const naturalKeys = [
-      { note: 'C3', position: [0, 0, 0], keyTrigger:'c' },
-      { note: 'D3', position: [0.1, 0, 0], keyTrigger:'d' },
-      { note: 'E3', position: [0.2, 0, 0], keyTrigger:'e' },
-      { note: 'F3', position: [0.3, 0, 0], keyTrigger:'f' },
-      { note: 'G3', position: [0.4, 0, 0], keyTrigger:'g' },
-      { note: 'A3', position: [0.50, 0, 0], keyTrigger:'a'  },
-      { note: 'B3', position: [0.60, 0, 0], keyTrigger:'b'  },
-  
-      { note: 'C3', position: [0.7, 0, 0] },
-      { note: 'D3', position: [0.8, 0, 0] },
-      { note: 'E3', position: [0.9, 0, 0] },
-      { note: 'F3', position: [1.0, 0, 0] },
-      { note: 'G3', position: [1.1, 0, 0] },
-      { note: 'A3', position: [1.2, 0, 0] },
-      { note: 'B3', position: [1.3, 0, 0] },
+  const handleKeyDown = (event) => {
+    if (store.open) return;
 
-      { note: 'C3', position: [1.4 , 0, 0] },
-      { note: 'D3', position: [1.5 , 0, 0] },
-      { note: 'E3', position: [1.6 , 0, 0] },
-      { note: 'F3', position: [1.7 , 0, 0] },
-      { note: 'G3', position: [1.8 , 0, 0] },
-      { note: 'A3', position: [1.9 , 0, 0] },
-      { note: 'B3', position: [2.0 , 0, 0] },
-  ];
+    const note = event.key.toUpperCase();
+    if (['C', 'E', 'A'].includes(note)) {
+      switch (note) {
+        case 'C':
+          CameraMove({ camera, position: { x: -130, y: 0, z: -82 }, targetPosition: { x: -130, y: 0, z: -82 } });
+          store.open = true;
+          store.currentModel = 'ContactMe';
+          new Audio('/audio/Nokia.mp3').play();
+          document.exitPointerLock();
+          break;
+        case 'E':
+          CameraMove({ camera, position: { x: -20, y: 0, z: 162 }, targetPosition: { x: -20, y: 0, z: 182 } });
+          store.open = true;
+          store.currentModel = 'Predict';
+          new Audio('/audio/EMajor.wav').play();
+          document.exitPointerLock();
+          break;
+        case 'A':
+          CameraMove({ camera, position: { x: 170, y: 2, z: -82 }, targetPosition: { x: 170, y: 2, z: -82 } });
+          store.open = true;
+          store.currentModel = 'AboutMe';
+          new Audio('/audio/AMajor.wav').play();
+          document.exitPointerLock();
+          break;
+        default:
+          break;
+      }
+    }
+  };
 
-  const flatKeys = [
-    { note: 'Db3', position: [0.05, 0.04, -0.12] },
-    { note: 'Eb3', position: [0.15, 0.04, -0.12] },
-    { note: 'Gb3', position: [0.35, 0.04, -0.12] },
-  ];
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
-    <>
-      {naturalKeys.map((key, index) => (
-        <PianoKey
-          key={`natural-${index}`}
-          position={key.position}
-          color="white"
-          size={[0.09, 0.043, 0.6]}
-          note={key.note}
-          audioFile={`${key.note}.mp3`}
-          keyTrigger={key.keyTrigger}
-        />
+    <group>
+      {naturalKeys.map(({ note, position }, index) => (
+        <Box
+          key={index}
+          args={[2, 1.3, 7.5]}
+          position={position}
+          onPointerOver={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: naturalKeyColors.hoverColor }))}
+          onPointerOut={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: naturalKeyColors.color }))}
+          onPointerDown={() => handlePointerDown(note)}
+        >
+          <meshStandardMaterial castShadow receiveShadow color={keyColors[note]} />
+        </Box>
       ))}
-      {flatKeys.map((key, index) => (
-        <PianoKey
-          key={`flat-${index}`}
-          position={key.position}
-          color="black"
-          size={[0.05, 0.05, 0.35]}
-          audioFile={`${key.note}.mp3`}
-        />
+
+{flatkeys.map(({ note, position }, index) => (
+        <group key={index}>
+          {/* Buffer around flat keys */}
+          <Box
+            args={[1.7, 1.5, 5.5]} // Slightly larger than the flat key
+            position={[position.x, position.y - 0.2, position.z ]} // Adjust the z position to create a buffer
+            onPointerOver={(e) => e.stopPropagation()}
+            onPointerOut={(e) => e.stopPropagation()}
+            onPointerDown={(e) => e.stopPropagation()}
+          >
+            <meshStandardMaterial transparent opacity={0} />
+          </Box>
+          {/* Flat key */}
+          <Box
+            args={[1.5, 1.3, 5]}
+            position={position}
+            onPointerOver={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: flatKeyColors.hoverColor }))}
+            onPointerOut={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: flatKeyColors.color }))}
+            onPointerDown={() => handlePointerDown(note)}
+          >
+            <meshStandardMaterial castShadow receiveShadow color={keyColors[note]} />
+          </Box>
+        </group>
       ))}
-    </>
+    </group>
   );
 }
