@@ -115,33 +115,50 @@ export function PianoKeys() {
     }));
   };
 
+  let currentAudio = null;
+
   const handleKeyDown = (event) => {
     if (store.open) return;
-
+  
     const note = event.key.toUpperCase();
-    if (['C', 'E', 'A'].includes(note)) {
+    if (['1', '2', '3'].includes(note)) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+  
+      let newAudio;
       switch (note) {
-        case 'C':
+        case '1':
           CameraMove({ camera, position: { x: -130, y: 0, z: -82 }, targetPosition: { x: -130, y: 0, z: -82 } });
           store.open = true;
           store.currentModel = 'ContactMe';
-          new Audio('/audio/Nokia.mp3').play();
+          newAudio = new Audio('/audio/Nokia.mp3');
+          newAudio.volume = 0.2; // Set volume to 20%
+          newAudio.play();
+          currentAudio = newAudio;
           document.exitPointerLock();
           break;
-        case 'E':
+        case '2':
           CameraMove({ camera, position: { x: -20, y: 0, z: 162 }, targetPosition: { x: -20, y: 0, z: 182 } });
           store.open = true;
           store.currentModel = 'Predict';
-          new Audio('/audio/EMajor.wav').play();
+          newAudio = new Audio('/audio/bach.mp3');
+          newAudio.volume = 0.8;
+          newAudio.play();
+          currentAudio = newAudio;
           document.exitPointerLock();
           break;
-        case 'A':
+        case '3':
           CameraMove({ camera, position: { x: 170, y: 2, z: -82 }, targetPosition: { x: 170, y: 2, z: -82 } });
           store.open = true;
           store.currentModel = 'AboutMe';
-          new Audio('/audio/AMajor.wav').play();
+          newAudio = new Audio('/audio/lesley.wav');
+          newAudio.play();
+          currentAudio = newAudio;
           document.exitPointerLock();
           break;
+
         default:
           break;
       }

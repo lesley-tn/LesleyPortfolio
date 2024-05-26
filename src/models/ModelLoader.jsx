@@ -8,6 +8,7 @@ export const ModelLoader = ({ modelPath, position, rotation, scale, ...props }) 
     const [hovered, hover] = useState(false);
     const gltf = useLoader(GLTFLoader, modelPath);
 
+    
     return gltf ? (
         <Select enabled={hovered}>
             <primitive 

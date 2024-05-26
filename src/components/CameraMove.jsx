@@ -7,6 +7,7 @@ export function CameraMove({ camera, position, targetPosition }) {
         y: position.y,
         z: position.z,
         duration: 2,
+        ease: "power2.inOut", 
         onUpdate: () => {
             camera.lookAt(targetPosition.x, targetPosition.y, targetPosition.z);
         },
