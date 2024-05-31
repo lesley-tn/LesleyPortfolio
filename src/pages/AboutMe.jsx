@@ -7,7 +7,7 @@ export function AboutMe() {
         { icon: '/img/react.png', name: 'React' },
         { icon: '/img/vue.png', name: 'Vue' },
         { icon: '/img/unity.png', name: 'Unity' },
-        { icon: '/img/threejs.png', name: 'Three.js' },
+        { icon: '/img/threeJs.png', name: 'Three.js' },
         { icon: '/img/blender.png', name: 'Blender' },
         { icon: '/img/figma.png', name: 'Figma' },
         { icon: '/img/photoshop.png', name: 'Photoshop' },

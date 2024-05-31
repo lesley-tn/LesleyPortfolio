@@ -20,7 +20,18 @@ export default function App() {
   
     return (
       <>
-        <Canvas shadows gl={{ logarithmicDepthBuffer: true }} camera={{ fov: 75, near: 0.01, far: 1000 }}>
+        <Canvas 
+          shadows 
+          gl={{ logarithmicDepthBuffer: true }} 
+          camera={{ fov: 75, near: 0.01, far: 1000 }}
+          performance= {{
+            current: 1,
+            min: 0.1,
+            max: 1,
+            debounce: 200}
+          }
+        >
+          
           <Suspense fallback={null}>
             <ambientLight intensity={0.5} />
             <Light />
