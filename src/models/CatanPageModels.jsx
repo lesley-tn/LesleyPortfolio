@@ -27,7 +27,7 @@ function Manual() {
           ref={ref}
           object={scene }  
           scale={4} 
-          position={[0, -15, 0]}
+          position={[0, 0, 0]}
           {...bind()}
         />
     </>
@@ -44,7 +44,7 @@ function Manual() {
           ref={ref}
           object={scene }  
           scale={2.5} 
-          position={[0, -18.5, 0]}
+          position={[0,2.5, 0]}
           {...bind()}
         />
       </>
@@ -61,7 +61,7 @@ function Manual() {
           ref={ref}
           object={scene }  
           scale={2.5} 
-          position={[0, -21, 0]}
+          position={[0, -0, 0]}
           {...bind()}
         />
       </>
@@ -78,7 +78,7 @@ function Manual() {
           ref={ref}
           object={scene }  
           scale={2.5} 
-          position={[0, -23.5, 0]}
+          position={[0, -2.5, 0]}
           {...bind()}
         />
       </>

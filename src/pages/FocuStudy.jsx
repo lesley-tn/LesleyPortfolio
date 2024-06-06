@@ -2,59 +2,75 @@ import React from 'react';
 
 export function FocuStudy() {
     return (
-        <div className="focus">
-            <div className="header">
+        <div className="focus inter">
+            <header className="header">
                 <h1>FocuStudy</h1>
-                <img src="/img/FocuStudyShowCase.png" alt="FocuStudy Interface" />
-            </div>
-            <div className="project-details">
-                <h2>Project Details</h2>
-                <p><strong>Project Type:</strong> UX/UI Design, UX Research, Prototyping</p>
-                <p><strong>Tools Used:</strong> Figma</p>
-                <p><strong>Duration:</strong> 3 months</p>
-            </div>
-            <div className="about">
-                <h2>About</h2>
-                <p>FocuStudy is designed to enhance the studying experience for college students through focused study sessions, group collaboration, and progress tracking. The goal was to create an intuitive, engaging platform that motivates students to achieve their academic goals while fostering a sense of community.</p>
-            </div>
-            <div className="challenges">
-                <h2>Challenges</h2>
-                <p>Many students were facing difficulties while concentrating on studying due to distractions such as social media and the need to stay connected, especially during the pandemic with increased home-based study.</p>
-            </div>
-            <div className="design-process">
-                <h2>Design Process</h2>
-                <ul>
-                    <li><strong>Ideation:</strong> Brainstorming sessions led to features like customizable focus timers, interactive study groups, and gamified progress tracking.</li>
-                    <li><strong>User Flows & Wireframes:</strong> User journeys for setting up study sessions, joining groups, and tracking achievements were developed.</li>
-                    <li><strong>Prototyping & Testing:</strong> Interactive prototypes were created and tested with students, leading to iterative improvements.</li>
-                </ul>
-            </div>
-            <div className="research-insights">
-                <h2>Research & Insights</h2>
-                <p>Surveys and interviews with 30 college students revealed challenges such as difficulty maintaining focus, lack of motivation, and poor time management. These insights guided the development of key features like the study timer and communal study spaces.</p>
+                <p>A mobile app esigned to improve concentration and foster community among students.</p>
+            </header>
+            
+            <div className='project-info'>
+                <h2>Project Overview</h2>
+                <div className="project-details">
+                    <span><strong>Duration:</strong> 3 Months</span> |
+                    <span><strong>Tools:</strong> Figma, Axure</span> |
+                    <span><strong>Role:</strong> UX/UI Designer, Researcher, Prototyper</span>
+                </div>
+                <p  class="challenge" >
+                    <strong>Challenge:</strong>
+                    <span>
+                    Many students faced difficulties in maintaining focus during their study sessions, 
+                    primarily due to various internet distractions such as social media and the continual need to stay connected. 
+                    During the pandemic, the shift to home-based learning further compounded these challenges, 
+                    presenting even more significant obstacles to effective study habits.
+                    </span>
+                </p>
             </div>
 
-            <div className="First-design">
-                <h2>First Prototype</h2>
-                <div className="First-prototype"> 
-                <iframe  width="420px" height='900px' src="https://rkybuq.axshare.com/timer.html" scrolling='no'></iframe>
-                </div>
-            </div>
-            <div className="features-functionality">
-                <h2>Key Features & Functionality</h2>
+            <h2>Project Process</h2>
+            <img src='/img/f2.png' />
+           
+
+            <h2>User Analysis</h2>
+         <div className="list-container">
+
+        <p>&#x2022; <highlight>100%</highlight> of participants reported getting easily distracted while studying.</p>
+        <p>&#x2022; <highlight>83%</highlight> cited electronic devices as the primary source of distraction.</p>
+        <p>&#x2022; <highlight>67%</highlight> found environmental noises and the home setting contributing to distractions.</p>
+  
+        </div>
+          
+
+           
+            <h2>Solution Implemented</h2>
+            <ul>
+                <li><strong>Timer & Reward System: </strong> Rewards users with a digital fish upon completing planned study sessions.</li>
+                <li><strong>Focus Management:</strong> Penalty for turning off the app before achieving set goals to encourage focus.</li>
+                <li><strong>Study Groups:</strong> Facilitates joining groups for collaborative study.</li>
+                <li><strong>Progress Tracking:</strong> Visual and quantifiable tracking of study hours.</li>
+            </ul>
+           
+
+
+            <section className="prototypes">
+                <h2>Explore First Prototype:</h2>
+                <iframe title="First Prototype" width="100%" height="900px" src="https://rkybuq.axshare.com/timer.html" scrolling="no"></iframe>
+            </section>
+
+        
+                <h2>User Feedback on First Prototype</h2>
                 <ul>
-                    <li><strong>Customizable Focus Timer:</strong> Allows students to set personalized study intervals with breaks.</li>
-                    <li><strong>Interactive Study Groups:</strong> Facilitates group collaboration and accountability.</li>
-                    <li><strong>Progress Tracking:</strong> Visual dashboard displays milestones and rewards.</li>
+                    <li><strong>Improve UI:</strong> The UI needs to be more appealing.</li>
+                    <li><strong>Implement the Reward Better: </strong>Make the reward concept clearer and more accessible.</li>
+                    <li><strong>Join Study Group: </strong>Improve the study group page to distinguish between joined and available groups, and add a search function.</li>
+                    <li><strong>Unclear Progress Page:</strong> Show actual study time data in the progress page.</li>
                 </ul>
-            </div>
-            <div className="final-design">
-                <h2>Final Design & Reflections</h2>
-                <p>The final design showcases a polished interface with intuitive navigation and a cohesive design system aimed at enhancing usability and accessibility.</p>
-                <iframe  width="420px" height='800px' src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FRXg58uzJeDt6YKJ7rXW2n5%2FFocuStudy%3Ftype%3Ddesign%26node-id%3D112-50%26t%3DBop5Pyqc1gvhEhNS-1%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D112%253A50%26mode%3Ddesign"  allowfullscreen></iframe>
-            </div>
+      
+
+            <section className="prototypes">
+                <h2>Explore Second Prototype:</h2>
+                <iframe title="Second Prototype" width="100%" height="800px" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FRXg58uzJeDt6YKJ7rXW2n5%2FFocuStudy%3Ftype%3Ddesign%26node-id%3D112-50%26t%3DBop5Pyqc1gvhEhNS-1%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D112%253A50%26mode%3Ddesign" allowFullScreen></iframe>
+            </section>
         </div>
     );
 }
-
 

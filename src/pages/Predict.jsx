@@ -17,6 +17,7 @@ export function Predict() {
                 With this webapp, Ow Onderhoudspartner Lenferink can efficiently manage their maintenance operations, 
                 paving the way for predictive maintenance and enhanced project oversight.
 </h2>
+
 <h2>Play with the demo:</h2>
             <div className="ipad-frame">
                 <iframe src="https://ink-ai.netlify.app/" frameBorder="0"></iframe>

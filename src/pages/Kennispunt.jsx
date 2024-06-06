@@ -23,7 +23,7 @@ export function Kennispunt() {
                     <p>Kennispunt Twente</p>
                 </div>
 
-                <div className="info-box ">
+                <div className="info-box">
                     <h3>Goal</h3>
                     <p>• &nbsp;&nbsp; Discover pain points on TMSD website<br/>
                     • &nbsp;&nbsp; Provide design recommendations to improve usability</p>
@@ -31,84 +31,119 @@ export function Kennispunt() {
             </div>
 
             <h2>Research Process</h2>
-            <img src="/img/k2.png"></img>
+            <img src="/img/k2.png" alt="Research Process"></img>
             <h2>Key Findings</h2>
             <h4>Google Analytics</h4>
             <ol>
-             <li>High Bounce rate</li>
-             <ul>Indicating potential issues with user engagement and navigation.</ul>
-             <li>Short Average Duration</li>
-             <ul>Suggesting that users are not finding value quickly.</ul>
-             <li>High Drop Off Rate</li>
-             <ul>Especially for home page, reflecting difficulties in navigation.</ul>
+                <li>High Bounce rate:
+                    <ul>
+                        <li>Indicating potential issues with user engagement and navigation.</li>
+                    </ul>
+                </li>
+                <li>Short Average Duration:
+                    <ul>
+                        <li>Suggesting that users are not finding value quickly.</li>
+                    </ul>
+                </li>
+                <li>High Drop Off Rate:
+                    <ul>
+                        <li>Especially for home page, reflecting difficulties in navigation.</li>
+                    </ul>
+                </li>
             </ol>
-                
-                
+
             <h4>Usability Testing</h4>
             <div className='info-container'>
                 <div className='info-box'>
                     <h3>Tasks Designed</h3>
-                        <p>• &nbsp;&nbsp;Home Page Interaction</p>
-                        <p>• &nbsp;&nbsp;Exploratory</p>
-                        <p>• &nbsp;&nbsp;Specific Page Interaction</p>
-                        <p>• &nbsp;&nbsp;Goal Oriented</p>
-                        <p>• &nbsp;&nbsp;Deep Navigation</p>
-                        <p>• &nbsp;&nbsp;Content understanding</p>               
+                    <p>• &nbsp;&nbsp;Home Page Interaction</p>
+                    <p>• &nbsp;&nbsp;Exploratory</p>
+                    <p>• &nbsp;&nbsp;Specific Page Interaction</p>
+                    <p>• &nbsp;&nbsp;Goal Oriented</p>
+                    <p>• &nbsp;&nbsp;Deep Navigation</p>
+                    <p>• &nbsp;&nbsp;Content understanding</p>
                 </div>
                 <div className='info-box'>
                     <h3>Recruiting Criteria</h3>
                     <p> • &nbsp;&nbsp;Sample Size: 9</p>
                     <p> • &nbsp;&nbsp;2 females & 7 males</p>
                     <p> • &nbsp;&nbsp;Citizen in Twente region</p>
-                    <p> • &nbsp;&nbsp;First time users</p>  
-                </div>             
+                    <p> • &nbsp;&nbsp;First time users</p>
+                </div>
             </div>
 
             <ol>
-                <li>Challenges in Information Retrieval</li>
-                <ul> Tasks related to finding specific information on the data dashboards had low success rates and took longer to complete, indicating that information retrieval from the dashboards was challenging for users.</ul>
-
-                <li>Content Understadning</li>
-                <ul> Tasks related to understanding content from the About and Disclaimer pages had high success rates, demonstrating that the content on these pages was clear and accessible.</ul>
+                <li>Challenges in Information Retrieval:
+                    <ul>
+                        <li>Tasks related to finding specific information on the data dashboards had low success rates and took longer to complete, indicating that information retrieval from the dashboards was challenging for users.</li>
+                    </ul>
+                </li>
+                <li>Content Understanding:
+                    <ul>
+                        <li>Tasks related to understanding content from the About and Disclaimer pages had high success rates, demonstrating that the content on these pages was clear and accessible.</li>
+                    </ul>
+                </li>
             </ol>
-              
 
-            <h3>Post-test Interview</h3>
+            <h4>Post-test Interview</h4>
             <ol>
-                <li>Complexity and Navigability Issues:</li>
-                <ul>Users expressed difficulties with the complexity and navigability of the website and the data dashboards.</ul>
-
-                <li>Appreciation for Clarity</li>
-                <ul>Despite navigational challenges, users appreciated the clarity of the information once they were able to find it.</ul>
+                <li>Complexity and Navigability Issues:
+                    <ul>
+                        <li>Users expressed difficulties with the complexity and navigability of the website and the data dashboards.</li>
+                    </ul>
+                </li>
+                <li>Appreciation for Clarity:
+                    <ul>
+                        <li>Despite navigational challenges, users appreciated the clarity of the information once they were able to find it.</li>
+                    </ul>
+                </li>
             </ol>
-           
- 
 
-           
             <h2>Recommendations for Improvement</h2>
             <ol>
-                <li>Improve Navigation: 
-                    <ul>Simplify navigation by combining general information of data dashboards to the homepage.</ul>
-                    <ul>Hightlight the active page in the navigation bar.</ul>
-                    <ul>Lable buttons clearly.</ul>
-                    <ul>Add a search bar for easier information retrieval.</ul>
+                <li>Improve Navigation:
+                    <ul>
+                        <li>Simplify navigation by combining general information of data dashboards to the homepage.</li>
+                        <li>Highlight the active page in the navigation bar.</li>
+                        <li>Label buttons clearly.</li>
+                        <li>Add a search bar for easier information retrieval.</li>
+                    </ul>
                 </li>
-                
-                <li>Add User Guiide:
-                    <ul>Provide a user guide or add introduction for first-time users.</ul>
-                    <ul>Highlight data filters to ensure user get the correct information</ul>
+                <li>Add User Guide:
+                    <ul>
+                        <li>Provide a user guide or add introduction for first-time users.</li>
+                        <li>Highlight data filters to ensure users get the correct information.</li>
+                    </ul>
                 </li>
-
                 <li>Improve Site Performance:
-                    <ul>Optimize loading times for data dashboards</ul>
-                    <ul>Ensure faster access to critical information</ul>
+                    <ul>
+                        <li>Optimize loading times for data dashboards.</li>
+                        <li>Ensure faster access to critical information.</li>
+                    </ul>
                 </li>
-
             </ol>
 
             <h2>Research Impact</h2>
+            <h3>Kennispunt Twente, a research agency focused on data collection and analysis, had never conducted UX research before.
+                My work provided them with the first comprehensive view of user experience on their websites, revealing several usability issues.
+            </h3>
+
+            <ol>
+                <li>Uncovering User Experience Issues:
+                    <ul>
+                        <li>The research highlighted that, while the TMSD website contains rich data, new users struggled to find what they needed due to confusing buttons and unclear navigation.</li>
+                    </ul>
+                </li>
+                <li>Benefiting Stakeholders:
+                    <ul>
+                        <li>Citizens of the Twente Region: Easier access to important information.</li>
+                        <li>Municipalities and Policymakers: Better access to organized data for improved decision-making and policy formulation.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>By following the recommendations, Kennispunt Twente will improve the usability of their website, ultimately benefiting all stakeholders.</h3>
   
         </div>
     );
 }
-
