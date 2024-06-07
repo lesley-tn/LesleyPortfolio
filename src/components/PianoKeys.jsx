@@ -6,64 +6,64 @@ import { CameraMove } from './CameraMove';
 import { useStore } from './index';
 
 const flatkeys = [
-  { note: 'Ab2', position: new Vector3(-28.35, -21.3, -74.8) },
-  { note: 'Bb2', position: new Vector3(-26.25, -21.3, -74.8) },
+  { note: 'Ab2', position: new Vector3(-28.35, -21.3, -32) },
+  { note: 'Bb2', position: new Vector3(-26.25, -21.3, -32) },
 
-  { note: 'Db3', position: new Vector3(-22.05, -21.3, -74.8) },
-  { note: 'Eb3', position: new Vector3(-19.95, -21.3, -74.8) },
-  { note: 'Gb3', position: new Vector3(-15.75, -21.3, -74.8) },
-  { note: 'Ab3', position: new Vector3(-13.65, -21.3, -74.8) },
-  { note: 'Bb3', position: new Vector3(-11.55, -21.3, -74.8) },
+  { note: 'Db3', position: new Vector3(-22.05, -21.3, -32) },
+  { note: 'Eb3', position: new Vector3(-19.95, -21.3, -32) },
+  { note: 'Gb3', position: new Vector3(-15.75, -21.3, -32) },
+  { note: 'Ab3', position: new Vector3(-13.65, -21.3, -32) },
+  { note: 'Bb3', position: new Vector3(-11.55, -21.3, -32) },
 
-  { note: 'Db4', position: new Vector3(-7.35, -21.3, -74.8) },
-  { note: 'Eb4', position: new Vector3(-5.25, -21.3, -74.8) },
-  { note: 'Gb4', position: new Vector3(-1.05, -21.3, -74.8) },
-  { note: 'Ab4', position: new Vector3(1.05, -21.3, -74.8) },
-  { note: 'Bb4', position: new Vector3(3.15, -21.3, -74.8) },
+  { note: 'Db4', position: new Vector3(-7.35, -21.3, -32) },
+  { note: 'Eb4', position: new Vector3(-5.25, -21.3, -32) },
+  { note: 'Gb4', position: new Vector3(-1.05, -21.3, -32) },
+  { note: 'Ab4', position: new Vector3(1.05, -21.3, -32) },
+  { note: 'Bb4', position: new Vector3(3.15, -21.3, -32) },
   
-  { note: 'Db5', position: new Vector3(7.35, -21.3, -74.8) },
-  { note: 'Eb5', position: new Vector3(9.45, -21.3, -74.8) },
-  { note: 'Gb5', position: new Vector3(13.65, -21.3, -74.8) },
-  { note: 'Ab5', position: new Vector3(15.75, -21.3, -74.8) },
-  { note: 'Bb5', position: new Vector3(17.85, -21.3, -74.8) },
+  { note: 'Db5', position: new Vector3(7.35, -21.3, -32) },
+  { note: 'Eb5', position: new Vector3(9.45, -21.3, -32) },
+  { note: 'Gb5', position: new Vector3(13.65, -21.3, -32) },
+  { note: 'Ab5', position: new Vector3(15.75, -21.3, -32) },
+  { note: 'Bb5', position: new Vector3(17.85, -21.3, -32) },
 
-  { note: 'Db6', position: new Vector3(22.05, -21.3, -74.8) },
-  { note: 'Eb6', position: new Vector3(24.15, -21.3, -74.8) },
+  { note: 'Db6', position: new Vector3(22.05, -21.3, -32) },
+  { note: 'Eb6', position: new Vector3(24.15, -21.3, -32) },
 
 ];
 
 const naturalKeys = [
-  { note: 'G2', position: new Vector3(-29.4, -22, -73.7) },
-  { note: 'A2', position: new Vector3(-27.3, -22, -73.7) },
-  { note: 'B2', position: new Vector3(-25.2, -22, -73.7) },
+  { note: 'G2', position: new Vector3(-29.4, -22, -30.9) },
+  { note: 'A2', position: new Vector3(-27.3, -22, -30.9) },
+  { note: 'B2', position: new Vector3(-25.2, -22, -30.9) },
 
-  { note: 'C3', position: new Vector3(-23.1, -22, -73.7) },
-  { note: 'D3', position: new Vector3(-21, -22, -73.7) },
-  { note: 'E3', position: new Vector3(-18.9, -22, -73.7) },
-  { note: 'F3', position: new Vector3(-16.8, -22, -73.7) },
-  { note: 'G3', position: new Vector3(-14.7, -22, -73.7) },
-  { note: 'A3', position: new Vector3(-12.6, -22, -73.7) },
-  { note: 'B3', position: new Vector3(-10.5, -22, -73.7) },
+  { note: 'C3', position: new Vector3(-23.1, -22, -30.9) },
+  { note: 'D3', position: new Vector3(-21, -22, -30.9) },
+  { note: 'E3', position: new Vector3(-18.9, -22, -30.9) },
+  { note: 'F3', position: new Vector3(-16.8, -22, -30.9) },
+  { note: 'G3', position: new Vector3(-14.7, -22, -30.9) },
+  { note: 'A3', position: new Vector3(-12.6, -22, -30.9) },
+  { note: 'B3', position: new Vector3(-10.5, -22, -30.9) },
 
-  { note: 'C4', position: new Vector3(-8.4, -22, -73.7) },
-  { note: 'D4', position: new Vector3(-6.3, -22, -73.7) },
-  { note: 'E4', position: new Vector3(-4.2, -22, -73.7) },
-  { note: 'F4', position: new Vector3( -2.1, -22, -73.7) },
-  { note: 'G4', position: new Vector3(0, -22, -73.7) },
-  { note: 'A4', position: new Vector3(2.1, -22, -73.7) },
-  { note: 'B4', position: new Vector3(4.2, -22, -73.7) },
+  { note: 'C4', position: new Vector3(-8.4, -22, -30.9) },
+  { note: 'D4', position: new Vector3(-6.3, -22, -30.9) },
+  { note: 'E4', position: new Vector3(-4.2, -22, -30.9) },
+  { note: 'F4', position: new Vector3( -2.1, -22, -30.9) },
+  { note: 'G4', position: new Vector3(0, -22, -30.9) },
+  { note: 'A4', position: new Vector3(2.1, -22, -30.9) },
+  { note: 'B4', position: new Vector3(4.2, -22, -30.9) },
 
-  { note: 'C5', position: new Vector3(6.3, -22, -73.7) },
-  { note: 'D5', position: new Vector3(8.4, -22, -73.7) },
-  { note: 'E5', position: new Vector3(10.5, -22, -73.7) },
-  { note: 'F5', position: new Vector3(12.6, -22, -73.7) },
-  { note: 'G5', position: new Vector3(14.7, -22, -73.7) },
-  { note: 'A5', position: new Vector3(16.8, -22, -73.7) },
-  { note: 'B5', position: new Vector3(18.9, -22, -73.7) },
+  { note: 'C5', position: new Vector3(6.3, -22, -30.9) },
+  { note: 'D5', position: new Vector3(8.4, -22, -30.9) },
+  { note: 'E5', position: new Vector3(10.5, -22, -30.9) },
+  { note: 'F5', position: new Vector3(12.6, -22, -30.9) },
+  { note: 'G5', position: new Vector3(14.7, -22, -30.9) },
+  { note: 'A5', position: new Vector3(16.8, -22, -30.9) },
+  { note: 'B5', position: new Vector3(18.9, -22, -30.9) },
 
-  { note: 'C6', position: new Vector3(21, -22, -73.7) },
-  { note: 'D6', position: new Vector3(23.1, -22, -73.7) },
-  { note: 'E6', position: new Vector3(25.2, -22, -73.7) },
+  { note: 'C6', position: new Vector3(21, -22, -30.9) },
+  { note: 'D6', position: new Vector3(23.1, -22, -30.9) },
+  { note: 'E6', position: new Vector3(25.2, -22, -30.9) },
  
 ];
 
@@ -129,7 +129,7 @@ export function PianoKeys() {
   
       let newAudio;
       switch (note) {
-        case '1':
+        case '3':
           CameraMove({ camera, position: { x: -130, y: 0, z: -82 }, targetPosition: { x: -130, y: 0, z: -82 } });
           store.open = true;
           store.currentModel = 'ContactMe';
@@ -149,7 +149,7 @@ export function PianoKeys() {
           currentAudio = newAudio;
           document.exitPointerLock();
           break;
-        case '3':
+        case '1':
           CameraMove({ camera, position: { x: 170, y: 2, z: -82 }, targetPosition: { x: 170, y: 2, z: -82 } });
           store.open = true;
           store.currentModel = 'AboutMe';

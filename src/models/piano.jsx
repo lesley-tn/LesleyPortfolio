@@ -1,137 +1,21 @@
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useBox } from '@react-three/cannon';
 
 export function Piano(props) {
   const groupRef = useRef()
   const { nodes, materials } = useGLTF('/models/piano.glb');
 
-  const Collider = ({ position, scale }) => {
-    const [ref] = useBox(() => ({
-      type: 'Static', 
-      position,
-      args: [scale[0] , scale[1] , scale[2] ], 
-    }));
-  
-    return <mesh ref={ref} />;
-  };
-  
   return (
     <group ref={groupRef} {...props} dispose={null}>
-      <group position={[4.439, 59.384, 249.766]} rotation={[-Math.PI / 2, 0, -3.141]} scale={25}>
+      <group position={[4.439, 59.384, 4.957]} rotation={[-Math.PI / 2, 0, -3.141]} scale={25}>
         <mesh
-          castShadow
           receiveShadow
           geometry={nodes.Object_2.geometry}
           material={materials.aiStandardSurface4SG}
         />
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Object_21.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_22.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_23.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_25.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_26.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_27.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_28.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_29.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_30.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_31.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_32.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_33.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_34.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_35.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_36.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_37.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_38.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_39.geometry}
           material={materials.aiStandardSurface2SG}
         />
         <mesh
@@ -141,63 +25,8 @@ export function Piano(props) {
           material={materials.aiStandardSurface12SG}
         />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_40.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
           receiveShadow
           geometry={nodes.Object_41.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_42.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_43.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_44.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_45.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_46.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_47.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_48.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_49.geometry}
           material={materials.aiStandardSurface2SG}
         />
         <mesh
@@ -207,31 +36,6 @@ export function Piano(props) {
           material={materials.aiStandardSurface13SG}
         />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_50.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_51.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_52.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Object_53.geometry}
-          material={materials.aiStandardSurface2SG}
-        />
-        <mesh
-          castShadow
           receiveShadow
           geometry={nodes.Object_54.geometry}
           material={materials.aiStandardSurface4SG}
@@ -272,7 +76,7 @@ export function Piano(props) {
         receiveShadow
         geometry={nodes.sheet.geometry}
         material={materials['Material.011']}
-        position={[4.612, 110.325, 203.427]}
+        position={[4.612, 110.325, -41.382]}
         rotation={[-2.819, -0.047, 3.132]}
       />
       <mesh
@@ -280,7 +84,7 @@ export function Piano(props) {
         receiveShadow
         geometry={nodes.transparentWindowFront001.geometry}
         material={materials['Material.012']}
-        position={[4.55, 85.415, 247.163]}
+        position={[4.55, 85.415, 2.354]}
         rotation={[-Math.PI, 0, Math.PI / 2]}
         scale={[-0.436, -11.696, -0.183]}
       />

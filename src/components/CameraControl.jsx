@@ -17,13 +17,13 @@ export function CameraControls() {
       const sideDirection = new THREE.Vector3();
 
       camera.getWorldDirection(forwardDirection);
-      forwardDirection.y = 0;  // Normalize the forward vector to ignore vertical movement
+      forwardDirection.y = 0; 
       forwardDirection.normalize();
 
       sideDirection.crossVectors(forwardDirection, new THREE.Vector3(0, 1, 0)).normalize();  // Get the perpendicular right vector
 
       const collisionThreshold = 25;
-      const moveSpeed = delta * 100; // Adjust movement speed based on delta
+      const moveSpeed = delta * 100; 
 
       const checkCollision = (direction) => {
         const raycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), direction);

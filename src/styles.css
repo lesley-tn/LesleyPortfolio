@@ -867,7 +867,6 @@ form input[type="submit"]:hover {
   max-height: 98%;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 20px;
-  padding-left: 20px;
   color: rgb(255, 255, 255);
   overflow-y: auto;
   
@@ -894,12 +893,8 @@ form input[type="submit"]:hover {
 
 .ipad-frame {
   width: 100%;
-  position: relative;
-  padding-bottom: 82.5ch; 
-  height: 0;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  overflow: hidden;
-  background: #ffffff;
+  position:relative;
+  height: 82.5ch ;
 }
 
 .ipad-frame iframe {

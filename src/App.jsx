@@ -7,11 +7,11 @@ import { Selection,  EffectComposer, Outline } from '@react-three/postprocessing
 import {Light, CameraControls, CameraMove, useStore, PianoKeys, Loading} from './components'
 import 
     {
-     Scene, 
      Piano, 
      VideoScreen, 
      ModelLoader,
-     Me
+     Me,
+     Room
 } from './models';
   
 export default function App() {
@@ -36,14 +36,14 @@ export default function App() {
             <ambientLight intensity={0.5} />
             <Light />
             <CameraControls />
-            <Physics>
+            <Physics  broadphase="SAP" gravity={[0, -9.81, 0]}>
               <Environment files="./img/amsterdam.hdr" background />
-              <Scene scale={0.5} position={[0, -56, 10]} rotation={[0, Math.PI, 0]} />
-              <Piano scale={[0.5, 0.5, 0.5]} position={[0, -56, 10]} rotation={[0, Math.PI, 0]} />
+              <Room scale={0.5} position={[0, -56, -20]} rotation={[0, Math.PI, 0]} />
+              <Piano scale={[0.5, 0.5, 0.5]} position={[0, -56, -70]} rotation={[0, Math.PI, 0]} />
               <PianoKeys />
               <Selection>
-                <EffectComposer multisampling={10} autoClear={false}>
-                  <Outline blur visibleEdgeColor="red" edgeStrength={10} width={1000} />
+                <EffectComposer multisampling={8} autoClear={false}>
+                  <Outline blur visibleEdgeColor="white" edgeStrength={10} width={500} />
                 </EffectComposer>
                 <Selector modelInfo="Twentee" position={{ x: -50, y: 0, z: 60 }} target={{ x: -75, y: 0, z: 60 }}>
                   <ModelLoader
@@ -113,23 +113,22 @@ function Selector({ children, modelInfo, position, target }) {
     const { camera } = useThree();
     const store = useStore();
 
-    const handlePointerDown = () => { 
-        if (!store.modelSelectionEnabled[modelInfo]) return;
-
-        CameraMove({
-            camera: camera,
-            position: position,
-            targetPosition: target,
-        });
-        setTimeout(() => {
-            store.open = true;
-            store.currentModel = modelInfo;
-            document.exitPointerLock();   
-            store.setModelSelectionEnabled(modelInfo, false);
-            setTimeout(() => store.setModelSelectionEnabled(modelInfo, true), 5000);
-        });
-        
-    };
+    const handlePointerDown = useCallback(() => { 
+      if (!store.modelSelectionEnabled[modelInfo]) return;
+  
+      CameraMove({
+        camera: camera,
+        position: position,
+        targetPosition: target,
+      });
+      setTimeout(() => {
+        store.open = true;
+        store.currentModel = modelInfo;
+        document.exitPointerLock();
+        store.setModelSelectionEnabled(modelInfo, false);
+        setTimeout(() => store.setModelSelectionEnabled(modelInfo, true), 5000);
+      });
+    }, [camera, modelInfo, position, store, target]);
 
     return (
       <group onPointerDown={handlePointerDown}>

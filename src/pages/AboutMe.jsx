@@ -24,13 +24,13 @@ export function AboutMe() {
                 I hold a Bachelor's degree in communication science, which helps me create engaging digital experiences.
                 <br /><br />
                 
-                As I blend technology with human-centric design, I create engaging, immersive experiences that are are visually appealing, user-friendly.
+                As I blend technology with human-centric design, I create engaging, immersive experiences that are visually appealing and user-friendly.
                 
                 <br/>  <br/>
           
                 
 
-                Let the haunting melodies of the piano guide you through my world, where design meets dynamism, and every interaction is a note in our ongoing symphony of user engagement. Dive into the depths of my creations, where the blend of visual appeal and functionality brings your digital interactions to life.
+                Let the haunting melodies of the piano guide you through my world, where design meets dynamics, and every interaction is a note in our ongoing symphony of user engagement. 
             </h3>
 
                 

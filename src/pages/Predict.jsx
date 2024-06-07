@@ -20,7 +20,7 @@ export function Predict() {
 
 <h2>Play with the demo:</h2>
             <div className="ipad-frame">
-                <iframe src="https://ink-ai.netlify.app/" frameBorder="0"></iframe>
+                <iframe src="https://ink-ai.netlify.app/"></iframe>
             </div>
         </div>
     );
