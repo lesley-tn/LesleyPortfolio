@@ -11,7 +11,7 @@ export function CameraControls() {
   const moveRight = useRef(false);
   const store = useStore();
 
-  useFrame(() => {
+  useFrame((state, delta) => {
     if (!store.open) {
       const forwardDirection = new THREE.Vector3();
       const sideDirection = new THREE.Vector3();
@@ -22,29 +22,26 @@ export function CameraControls() {
 
       sideDirection.crossVectors(forwardDirection, new THREE.Vector3(0, 1, 0)).normalize();  // Get the perpendicular right vector
 
-      const forwardRaycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), forwardDirection);
-      const backwardRaycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), forwardDirection.clone().negate());
-      const leftRaycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), sideDirection.clone().negate());
-      const rightRaycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), sideDirection);
+      const collisionThreshold = 25;
+      const moveSpeed = delta * 100; // Adjust movement speed based on delta
 
-      const forwardCollisions = forwardRaycaster.intersectObjects(scene.children, true);
-      const backwardCollisions = backwardRaycaster.intersectObjects(scene.children, true);
-      const leftCollisions = leftRaycaster.intersectObjects(scene.children, true);
-      const rightCollisions = rightRaycaster.intersectObjects(scene.children, true);
+      const checkCollision = (direction) => {
+        const raycaster = new THREE.Raycaster(camera.position.clone().add(new THREE.Vector3(0, -50, 0)), direction);
+        const collisions = raycaster.intersectObjects(scene.children, true);
+        return !collisions.length || collisions[0].distance > collisionThreshold;
+      };
 
-      const collisionThreshold = 25; 
-
-      if (moveForward.current && (!forwardCollisions.length || forwardCollisions[0].distance > collisionThreshold)) {
-        camera.position.add(forwardDirection.multiplyScalar(0.8));
+      if (moveForward.current && checkCollision(forwardDirection)) {
+        camera.position.add(forwardDirection.multiplyScalar(moveSpeed));
       }
-      if (moveBackward.current && (!backwardCollisions.length || backwardCollisions[0].distance > collisionThreshold)) {
-        camera.position.add(forwardDirection.clone().negate().multiplyScalar(0.8));
+      if (moveBackward.current && checkCollision(forwardDirection.clone().negate())) {
+        camera.position.add(forwardDirection.clone().negate().multiplyScalar(moveSpeed));
       }
-      if (moveLeft.current && (!leftCollisions.length || leftCollisions[0].distance > collisionThreshold)) {
-        camera.position.add(sideDirection.clone().negate().multiplyScalar(0.8));
+      if (moveLeft.current && checkCollision(sideDirection.clone().negate())) {
+        camera.position.add(sideDirection.clone().negate().multiplyScalar(moveSpeed));
       }
-      if (moveRight.current && (!rightCollisions.length || rightCollisions[0].distance > collisionThreshold)) {
-        camera.position.add(sideDirection.multiplyScalar(0.8));
+      if (moveRight.current && checkCollision(sideDirection)) {
+        camera.position.add(sideDirection.multiplyScalar(moveSpeed));
       }
     }
   });

@@ -67,4 +67,4 @@ function modelRotation () {
     )
   }
 
-export { Manual, Card1, Card2, Card3 };
+export { Card1, Card2, Card3 };

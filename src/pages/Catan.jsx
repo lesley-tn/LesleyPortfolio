@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Text, Scroll, ScrollControls, Preload, OrbitControls, useGLTF} from '@react-three/drei';
 
-import { Manual, Card1, Card2, Card3 } from '../models';
+import {  Card1, Card2, Card3 } from '../models';
 import {CatanText} from '../components/text'
 
 function Manual1() {
