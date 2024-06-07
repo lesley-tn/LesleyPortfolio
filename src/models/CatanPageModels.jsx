@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useDrag } from '@use-gesture/react';
-import CatanManualModel from '../assets/3dModel/CatanManual.glb';
 import ActionCardModel1 from '../assets/3dModel/ActionCard1.glb';
 import ActionCardModel2 from '../assets/3dModel/ActionCard2.glb';
 import ActionCardModel3 from '../assets/3dModel/ActionCard3.glb';
@@ -15,23 +14,6 @@ function modelRotation () {
   }, { pointerEvents: true });
 
   return { ref, bind };
-}
-
-function Manual() {
-  const { scene } = useGLTF(CatanManualModel);
-  const { ref, bind } = modelRotation();
-
-  return (
-    <>
-      <primitive 
-          ref={ref}
-          object={scene }  
-          scale={4} 
-          position={[0, 0, 0]}
-          {...bind()}
-        />
-    </>
-  );
 }
 
  function Card1 () {
