@@ -33,8 +33,6 @@ export function Catan() {
       </p>
 
       <h2>Game Design Showcase</h2>
-      <h3>Game Board:</h3>
-      <img src="/img/gameBoard.png" alt="gameBoard" />
 
       <h3>Game Manual:</h3>
       <div className='manual-container'>
@@ -44,15 +42,13 @@ export function Catan() {
           <OrbitControls enableZoom={false}/>
         </Canvas>
       </div>
+      
+      <h3>Game Board:</h3>
+      <img src="/img/gameBoard.png" alt="gameBoard" />
+
+     
       <h3>Action Cards:</h3>
-      <div className='actioncard-container'>
-        <Canvas>
-          <ambientLight intensity={2} />
-          <Card1 />
-          <Card2 />
-          <Card3 />       
-        </Canvas>
-      </div>
+     <img src='/img/c2.png' />
 
       <h2> Gameplay</h2>
       <ul>
