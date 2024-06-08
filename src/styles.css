@@ -631,7 +631,7 @@ img {
   text-align: center;
 }
 
-.focus highlight{
+.focus .list-container strong{
   font-weight: 700;
   font-size: clamp(0.8rem, 2vw, 3rem);
   white-space: nowrap;
@@ -1042,9 +1042,11 @@ form input[type="submit"]:hover {
   position: absolute;
   top: 20px;
   right: 20px;
-
   background-color: white;
   border-radius: 5px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
 
 }
 
@@ -1052,10 +1054,10 @@ form input[type="submit"]:hover {
   background: none;
   border: none;
   cursor: pointer;
-  
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  margin: 3px;
+  font-size: 3vh;
 }
 
-.close-button .material-symbols-outlined {
-  font-size: 3vh;
-  color: #000; 
-}

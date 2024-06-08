@@ -17,7 +17,7 @@ export function FocuStudy() {
                     <span><strong>Tools:</strong> Figma, Axure</span> |
                     <span><strong>Role:</strong> UX/UI Designer, Researcher, Prototyper</span>
                 </div>
-                <p  class="challenge" >
+                <p  className="challenge" >
                     <strong>Challenge:</strong>
                     <span>
                     Many students faced difficulties in maintaining focus during their study sessions, 
@@ -35,9 +35,9 @@ export function FocuStudy() {
             <h2>User Analysis</h2>
          <div className="list-container">
 
-        <p>&#x2022; <highlight>100%</highlight> of participants reported getting easily distracted while studying.</p>
-        <p>&#x2022; <highlight>83%</highlight> cited electronic devices as the primary source of distraction.</p>
-        <p>&#x2022; <highlight>67%</highlight> found environmental noises and the home setting contributing to distractions.</p>
+        <p>&#x2022; <strong>100%</strong> of participants reported getting easily distracted while studying.</p>
+        <p>&#x2022; <strong>83%</strong> cited electronic devices as the primary source of distraction.</p>
+        <p>&#x2022; <strong>67%</strong> found environmental noises and the home setting contributing to distractions.</p>
   
         </div>
           
