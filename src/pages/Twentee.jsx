@@ -1,8 +1,10 @@
 import React from 'react';
+import { CloseButton } from '../components';
 
 export function Twentee() {
     return (
         <div className="twentee bubblegum-sans-regular">
+            <CloseButton />
             <div className='header'>
                 <h1>Twentee</h1>
                 <h4>A mobile game:  Campus quest design for University of Twente</h4>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { CloseButton } from '../components';
 
 export function FocuStudy() {
     return (
         <div className="focus inter">
+            <CloseButton />
             <header className="header">
                 <h1>FocuStudy</h1>
                 <p>A mobile app esigned to improve concentration and foster community among students.</p>

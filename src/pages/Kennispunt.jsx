@@ -1,8 +1,10 @@
 import React from 'react';
+import { CloseButton } from '../components';
 
 export function Kennispunt() {
     return (
         <div className="kennispunt inter">
+            <CloseButton />
             <h1>Optimize Usability of Data Dashboards</h1>
             
             <h2>Project Background</h2>

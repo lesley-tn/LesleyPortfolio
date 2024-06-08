@@ -27,26 +27,9 @@ export function Overlay() {
     }
   };
 
-  const CloseOverlay = () => {
-    setClicked(true); 
-    setTimeout(() => {
-      state.setOpen(false); 
-      setClicked(false); 
-    }, 1000); 
-  };
-
-
   return (
     <div className={`overlay ${state.open ? "active" : ""} ${clicked ? "clicked" : ""}`} onClick={(e) => e.stopPropagation()}>
-      {state.open && (
-          <>
-          {getModelContent()}   
-              <div className="close-button-container">
-                <button onClick={CloseOverlay}>Back to Home</button>
-              </div>
-                        
-          </>
-      )}
+      {state.open && getModelContent()}
     </div>
   );
 }

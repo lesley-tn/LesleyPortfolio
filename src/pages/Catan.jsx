@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Text, Scroll, ScrollControls, Preload, OrbitControls, useGLTF} from '@react-three/drei';
 
 import {  Card1, Card2, Card3 } from '../models';
-import {CatanText} from '../components/text'
+import { CloseButton } from '../components';
 
 function Manual1() {
   const { scene } = useGLTF('./models/CatanManual.glb');
@@ -23,6 +23,7 @@ export function Catan() {
  
   return (
     <div className='catan'>
+      <CloseButton />
       <h1>The Corpos Of Catan</h1>
     
       <p>The Corporates of Catan is a strategic board game that 

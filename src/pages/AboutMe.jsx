@@ -1,5 +1,6 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
+import { CloseButton } from '../components';
 
 export function AboutMe() {
     const skills = [
@@ -17,6 +18,7 @@ export function AboutMe() {
 
     return (
         <div className="aboutme bubblegum-sans-regular">
+            <CloseButton />
             <h1>About me</h1>
             <h2>Welcome to my digital realm where creativity plays in every shadow. </h2>
             <h3>

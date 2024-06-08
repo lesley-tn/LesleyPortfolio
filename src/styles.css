@@ -1037,3 +1037,25 @@ form input[type="submit"]:hover {
   margin: 2ch;
   text-align: justify;
 }
+
+.close-button-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  background-color: white;
+  border-radius: 5px;
+
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.close-button .material-symbols-outlined {
+  font-size: 3vh;
+  color: #000; 
+}

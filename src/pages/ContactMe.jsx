@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { CloseButton } from '../components';
 
 export function ContactMe() {
   const form = useRef();
@@ -22,6 +23,7 @@ export function ContactMe() {
   
   return (
     <div className="contact">
+      <CloseButton />
       <div className="header">
           <h1>Contact me</h1>
       </div>

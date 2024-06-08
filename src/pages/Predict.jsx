@@ -1,8 +1,10 @@
 import React from 'react';
+import { CloseButton } from '../components';
 
 export function Predict() {
     return (
         <div className="predict">
+            <CloseButton />
             <h1>Data Centralization Webapp</h1>
 
             
