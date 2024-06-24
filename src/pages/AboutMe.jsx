@@ -27,12 +27,7 @@ export function AboutMe() {
                 <br /><br />
                 
                 As I blend technology with human-centric design, I create engaging, immersive experiences that are visually appealing and user-friendly.
-                
-                <br/>  <br/>
-          
-                
-
-                Let the haunting melodies of the piano guide you through my world, where design meets dynamics, and every interaction is a note in our ongoing symphony of user engagement. 
+              
             </h3>
 
                 

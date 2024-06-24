@@ -46,7 +46,7 @@ export function Me({ clip, triggerdAnimate, ...props }) {
         object={scene} 
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
-        position={[153,-20,-115]}
+        position={[111,-15,-65]}
         scale={[5,5,5]}
         {...props} 
       />

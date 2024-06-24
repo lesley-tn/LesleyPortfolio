@@ -130,7 +130,7 @@ export function PianoKeys() {
       let newAudio;
       switch (note) {
         case '3':
-          CameraMove({ camera, position: { x: -130, y: 0, z: -82 }, targetPosition: { x: -130, y: 0, z: -82 } });
+          CameraMove({ camera, position: { x: -87, y: 0, z: -30 }, targetPosition: { x: -87, y: 0, z: -32 } });
           store.open = true;
           store.currentModel = 'ContactMe';
           newAudio = new Audio('/audio/Nokia.mp3');
@@ -140,7 +140,7 @@ export function PianoKeys() {
           document.exitPointerLock();
           break;
         case '2':
-          CameraMove({ camera, position: { x: -20, y: 0, z: 162 }, targetPosition: { x: -20, y: 0, z: 182 } });
+          CameraMove({ camera, position: {  x: -20, y: 0, z: 154 }, targetPosition: { x: -20, y: 0, z: 155 } });
           store.open = true;
           store.currentModel = 'Predict';
           newAudio = new Audio('/audio/bach.mp3');
@@ -150,7 +150,7 @@ export function PianoKeys() {
           document.exitPointerLock();
           break;
         case '1':
-          CameraMove({ camera, position: { x: 170, y: 2, z: -82 }, targetPosition: { x: 170, y: 2, z: -82 } });
+          CameraMove({ camera, position: { x: 135, y: 2, z: -30 }, targetPosition: { x: 135, y: 2, z: -32 } });
           store.open = true;
           store.currentModel = 'AboutMe';
           newAudio = new Audio('/audio/lesley.wav');

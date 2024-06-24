@@ -45,27 +45,27 @@ export default function App() {
                 <EffectComposer multisampling={8} autoClear={false}>
                   <Outline blur visibleEdgeColor="white" edgeStrength={10} width={500} />
                 </EffectComposer>
-                <Selector modelInfo="Twentee" position={{ x: -50, y: 0, z: 60 }} target={{ x: -75, y: 0, z: 60 }}>
+                <Selector modelInfo="Twentee" position={{ x: -50, y: 0, z: 55 }} target={{ x: -75, y: 0, z: 55 }}>
                   <ModelLoader
                     modelPath="/models/Twentee.glb"
-                    position={[-75, -16, 84]}
+                    position={[-75, -16, 78.2]}
                     rotation={[0, -Math.PI / 2, 0]}
                     scale={90}
                   />
                 </Selector>
-                <Selector modelInfo="FocuStudy" position={{ x: 50, y: 0, z: 160 }} target={{ x: 75, y: 0, z: 160 }}>
+                <Selector modelInfo="FocuStudy" position={{ x: 50, y: 0, z: 156 }} target={{ x: 75, y: 0, z: 156 }}>
                   <ModelLoader
                     modelPath="/models/FocuStudy.glb"
-                    position={[75, -16, 143]}
+                    position={[75, -16, 137]}
                     rotation={[0, Math.PI / 2, 0]}
                     scale={120}
                   />
-                  <VideoScreen scale={120} position={[75, -16, 143]} rotation={[0, Math.PI / 2, 0]} />
+                  <VideoScreen scale={120} position={[75, -16, 137]} rotation={[0, Math.PI / 2, 0]} />
                 </Selector>
-                <Selector modelInfo="Predict" position={{ x: -20, y: 0, z: 162 }} target={{ x: -20, y: 0, z: 182 }}>
+                <Selector modelInfo="Predict" position={{ x: -20, y: 0, z: 154 }} target={{ x: -20, y: 0, z: 170}}>
                   <ModelLoader
                     modelPath="/models/predict.glb"
-                    position={[0, -16, 182]}
+                    position={[0, -16, 176]}
                     rotation={[0, Math.PI / 2, 0]}
                     scale={5}
                   />
@@ -73,28 +73,28 @@ export default function App() {
                 <Selector modelInfo="Kennispunt" position={{ x: -50, y: 0, z: 120 }} target={{ x: -75, y: 0, z: 120 }}>
                   <ModelLoader
                     modelPath="/models/kennispunt.glb"
-                    position={[-75, -15, 143]}
+                    position={[-75, -15, 136]}
                     rotation={[0, 0, 0]}
                     scale={0.25}
                   />
                 </Selector>
-                <Selector modelInfo="Catan" position={{ x: 50, y: 0, z: 95 }} target={{ x: 75, y: 0, z: 95 }}>
+                <Selector modelInfo="Catan" position={{ x: 50, y: 0, z: 88 }} target={{ x: 75, y: 0, z: 88 }}>
                   <ModelLoader
                     modelPath="/models/corposOfCatanBox.glb"
-                    position={[75, -6, 79]}
+                    position={[75, -6, 73.5]}
                     rotation={[0, Math.PI / 2, 0]}
                     scale={2.5}
                   />
                 </Selector>
-                <Selector modelInfo="ContactMe" position={{ x: -130, y: 0, z: -80 }} target={{ x: -130, y: 0, z: -82 }}>
+                <Selector modelInfo="ContactMe" position={{ x: -87, y: 0, z: -30 }} target={{ x: -87, y: 0, z: -32 }}>
                   <ModelLoader
                     modelPath="/models/phone.glb"
-                    position={[-154, -17, -115]}
+                    position={[-111, -17, -65]}
                     rotation={[0, 0, 0]}
                     scale={1}
                   />
                 </Selector>
-                <Selector modelInfo="AboutMe" position={{ x: 170, y: 2, z: -80 }} target={{ x: 170, y: 2, z: -82 }}>
+                <Selector modelInfo="AboutMe" position={{ x: 135, y: 2, z: -30 }} target={{ x: 135, y: 2, z: -32 }}>
                   <Me />
                 </Selector>
               </Selection>
