@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF} from '@react-three/drei';
 
 import { CloseButton } from '../components';
 
-function Manual1() {
+function Manual() {
   const { scene } = useGLTF('./models/CatanManual.glb');
 
   return (
@@ -38,7 +38,7 @@ export function Catan() {
       <div className='manual-container'>
         <Canvas>
           <ambientLight intensity={2} />
-          <Manual1 />
+          <Manual />
           <OrbitControls enableZoom={false}/>
         </Canvas>
       </div>

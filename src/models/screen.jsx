@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
 
-import FocuStudyScreen from "../assets/3dModel/FocuStudyScreen.glb";
+import FocuStudyScreen from '/models/FocuStudyScreen.glb';
 
 extend({ ShaderMaterial: THREE.ShaderMaterial });
 
