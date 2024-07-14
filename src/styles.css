@@ -1033,7 +1033,7 @@ form input[type="submit"]:hover {
 }
 
 .close-button-container {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   background-color: white;

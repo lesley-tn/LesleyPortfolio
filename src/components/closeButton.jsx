@@ -6,6 +6,11 @@ export function CloseButton() {
   
   const handleClose = () => {
     state.setOpen(false); 
+    const canvas = document.querySelector('canvas'); 
+    if (canvas) {
+      canvas.requestPointerLock();
+    }
+
   };
 
   return (
