@@ -67,53 +67,9 @@ const naturalKeys = [
  
 ];
 
-const naturalKeyColors = {
-  color: 'white',
-  hoverColor: '#a16da8',
-  activeColor: '#724178',
-};
-
-const flatKeyColors = {
-  color: 'black',
-  hoverColor: '#2b4e8f',
-  activeColor: '#1d3869',
-};
-
 export function PianoKeys() {
   const { camera } = useThree();
   const store = useStore();
-  const [keyColors, setKeyColors] = useState(
-    [...naturalKeys, ...flatkeys].reduce((acc, { note }) => {
-      acc[note] = note.includes('b') ? flatKeyColors.color : naturalKeyColors.color;
-      return acc;
-    }, {})
-  );
-  const [playingNote, setPlayingNote] = useState(null);
-
-  const audioMap = useRef(
-    Object.fromEntries(
-      [...naturalKeys, ...flatkeys].map(({ note }) => [
-        note,
-        new Audio(`/audio/pianoNotes/${note}.mp3`),
-      ])
-    )
-  );
-
-  const handlePointerDown = (note) => {
-    if (playingNote) {
-      audioMap.current[playingNote].pause();
-      audioMap.current[playingNote].currentTime = 0; 
-    }
-
-    audioMap.current[note].play();
-    setPlayingNote(note);
-
-    const keyColorType = note.includes('b') ? flatKeyColors : naturalKeyColors;
-    setKeyColors((prevColors) => ({
-      ...prevColors,
-      [note]: keyColorType.activeColor,
-    }));
-  };
 
   let currentAudio = null;
 
@@ -144,7 +100,7 @@ export function PianoKeys() {
           store.open = true;
           store.currentModel = 'Predict';
           newAudio = new Audio('/audio/bach.mp3');
-          newAudio.volume = 0.8;
+          newAudio.volume = 0.6;
           newAudio.play();
           currentAudio = newAudio;
           document.exitPointerLock();
@@ -172,43 +128,26 @@ export function PianoKeys() {
 
   return (
     <group>
-      {naturalKeys.map(({ note, position }, index) => (
+      {naturalKeys.map(({ position }, index) => (
         <Box
           key={index}
           args={[2, 1.3, 7.5]}
           position={position}
-          onPointerOver={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: naturalKeyColors.hoverColor }))}
-          onPointerOut={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: naturalKeyColors.color }))}
-          onPointerDown={() => handlePointerDown(note)}
         >
-          <meshStandardMaterial castShadow receiveShadow color={keyColors[note]} />
+          <meshStandardMaterial castShadow receiveShadow color={'white'} />
         </Box>
       ))}
 
-{flatkeys.map(({ note, position }, index) => (
-        <group key={index}>
-          {/* Buffer around flat keys */}
-          <Box
-            args={[1.7, 1.5, 5.5]} // Slightly larger than the flat key
-            position={[position.x, position.y - 0.2, position.z ]} // Adjust the z position to create a buffer
-            onPointerOver={(e) => e.stopPropagation()}
-            onPointerOut={(e) => e.stopPropagation()}
-            onPointerDown={(e) => e.stopPropagation()}
-          >
-            <meshStandardMaterial transparent opacity={0} />
-          </Box>
-          {/* Flat key */}
-          <Box
-            args={[1.5, 1.3, 5]}
-            position={position}
-            onPointerOver={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: flatKeyColors.hoverColor }))}
-            onPointerOut={() => setKeyColors((prevColors) => ({ ...prevColors, [note]: flatKeyColors.color }))}
-            onPointerDown={() => handlePointerDown(note)}
-          >
-            <meshStandardMaterial castShadow receiveShadow color={keyColors[note]} />
-          </Box>
-        </group>
+      {flatkeys.map(({ position }, index) => (
+        <Box
+          key={index}
+          args={[1.5, 1.3, 5]}
+          position={position}
+        >
+          <meshStandardMaterial castShadow receiveShadow color={'black'} />
+        </Box>
       ))}
+
     </group>
   );
 }
