@@ -272,6 +272,7 @@ img {
   position: absolute;
   border-radius: 10px;
   right: 10px; 
+  padding: 20px;
   width: 55%;
   height: 98%;
   background-color: rgba(0, 0, 0, 0.8);
@@ -288,20 +289,21 @@ img {
 .catan h1 {
   font-family: 'AlgerianBasic';  
   font-size: clamp(1.5rem, 3vw, 4rem);
-  padding: 2vh;
+  padding-bottom: 2vh;
   color: #f5d366;              
 }
 
 .catan h2 {
   font-family: 'AlgerianBasic';  
   font-size: clamp(1rem, 2.5vw, 3.5rem);
-  margin: 3ch;
+  margin-bottom: 3ch;
+  margin-top: 3ch;
   color: #f5d366;
 }
 
 .catan h3 {
   font-size: clamp(1rem, 2.5vw, 3rem);
-  padding: 2vh;
+  padding-bottom: 2vh;
   text-align: left;
   color: #ffb4aa;
 
@@ -310,11 +312,8 @@ img {
 .catan p{
   font-size: clamp(0.8rem, 1.5vw, 2.2rem);
   text-align: justify;
-  padding: 2vh;
   color:#ffefef;
 }
-
-
 
 .catan ul {
   list-style: none; 
@@ -329,7 +328,7 @@ img {
   padding-left: 20px;
   text-align: left;
   font-size: clamp(0.8rem, 1.4vw, 2rem);
-  margin:2vh;
+  margin-bottom:2vh;
 }
 
 .catan li::before {
@@ -348,8 +347,6 @@ img {
   color: #ffb4aa;
   display: inline-block;
 }
-
-
 
 .catan img {
   width: 100%;
@@ -1032,26 +1029,34 @@ form input[type="submit"]:hover {
   text-align: justify;
 }
 
-.close-button-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: white;
-  border-radius: 5px;
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-  z-index: 1001;
 
+.close-button-container {
+  position: sticky; 
+  top: 10px; 
+  display: flex; 
+  justify-content: flex-end; 
+  z-index: 1001; 
+  height: 35px;
 }
 
 .close-button {
   background: none;
   border: none;
   cursor: pointer;
-  display: flex; 
+  font-size: 3vh;
+  display: flex;
   align-items: center; 
   justify-content: center;
-  margin: 3px;
-  font-size: 3vh;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.model-info-label {
+  color: rgb(0, 0, 0);
+  font-family: "Berkshire Swash", serif;
+  padding: 5px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  font-size: 10vh; 
+  white-space: nowrap; 
 }

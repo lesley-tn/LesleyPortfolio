@@ -1,7 +1,7 @@
 import React, { Suspense, useRef, useEffect, useState, useCallback } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { Physics, Debug } from '@react-three/cannon';
-import { Environment, PointerLockControls, Preload, useProgress } from '@react-three/drei';
+import { Physics } from '@react-three/cannon';
+import { Environment, PointerLockControls, Preload, useProgress, Html, Billboard  } from '@react-three/drei';
 import { Selection,  EffectComposer, Outline } from '@react-three/postprocessing'
 
 import {Light, CameraControls, CameraMove, useStore, PianoKeys, Loading} from './components'
@@ -45,7 +45,8 @@ export default function App() {
                 <EffectComposer multisampling={8} autoClear={false}>
                   <Outline blur visibleEdgeColor="white" edgeStrength={10} width={500} />
                 </EffectComposer>
-                <Selector modelInfo="Twentee" position={{ x: -50, y: 0, z: 55 }} target={{ x: -75, y: 0, z: 55 }}>
+                
+                <Selector modelInfo="Twentee" label="Unity Game" textPosition={[-75, 6, 72.5]} position={{ x: -50, y: 0, z: 55 }} target={{ x: -75, y: 0, z: 55 }}>
                   <ModelLoader
                     modelPath="/models/Twentee.glb"
                     position={[-75, -16, 78.2]}
@@ -53,7 +54,8 @@ export default function App() {
                     scale={90}
                   />
                 </Selector>
-                <Selector modelInfo="FocuStudy" position={{ x: 50, y: 0, z: 156 }} target={{ x: 75, y: 0, z: 156 }}>
+
+                <Selector modelInfo="FocuStudy"  label="UX/UI Design" textPosition={[78, 9, 137.5]} position={{ x: 50, y: 0, z: 156 }} target={{ x: 75, y: 0, z: 156 }}>
                   <ModelLoader
                     modelPath="/models/FocuStudy.glb"
                     position={[75, -16, 137]}
@@ -62,7 +64,8 @@ export default function App() {
                   />
                   <VideoScreen scale={120} position={[75, -16, 137]} rotation={[0, Math.PI / 2, 0]} />
                 </Selector>
-                <Selector modelInfo="Predict" position={{ x: -20, y: 0, z: 154 }} target={{ x: -20, y: 0, z: 170}}>
+
+                <Selector modelInfo="Predict" label="Webapp Development" textPosition={[ 0,  8, 180]} position={{ x: -20, y: 0, z: 154 }} target={{ x: -20, y: 0, z: 170}}>
                   <ModelLoader
                     modelPath="/models/predict.glb"
                     position={[0, -16, 176]}
@@ -70,7 +73,8 @@ export default function App() {
                     scale={5}
                   />
                 </Selector>
-                <Selector modelInfo="Kennispunt" position={{ x: -50, y: 0, z: 120 }} target={{ x: -75, y: 0, z: 120 }}>
+
+                <Selector modelInfo="Kennispunt" label="UX Research" textPosition={[ -75, 14, 135]} position={{ x: -50, y: 0, z: 120 }} target={{ x: -75, y: 0, z: 120 }}>
                   <ModelLoader
                     modelPath="/models/kennispunt.glb"
                     position={[-75, -15, 136]}
@@ -78,7 +82,8 @@ export default function App() {
                     scale={0.25}
                   />
                 </Selector>
-                <Selector modelInfo="Catan" position={{ x: 50, y: 0, z: 88 }} target={{ x: 75, y: 0, z: 88 }}>
+
+                <Selector modelInfo="Catan" label="Board Game Design" textPosition={[ 78,  8, 72.5]} position={{ x: 50, y: 0, z: 88 }} target={{ x: 75, y: 0, z: 88 }}>
                   <ModelLoader
                     modelPath="/models/corposOfCatanBox.glb"
                     position={[75, -6, 73.5]}
@@ -86,7 +91,8 @@ export default function App() {
                     scale={2.5}
                   />
                 </Selector>
-                <Selector modelInfo="ContactMe" position={{ x: -87, y: 0, z: -30 }} target={{ x: -87, y: 0, z: -32 }}>
+
+                <Selector modelInfo="ContactMe" label="Contact Me" textPosition={[ -109.5,  5, -65]} position={{ x: -87, y: 0, z: -30 }} target={{ x: -87, y: 0, z: -32 }}>
                   <ModelLoader
                     modelPath="/models/phone.glb"
                     position={[-111, -17, -65]}
@@ -94,9 +100,11 @@ export default function App() {
                     scale={1}
                   />
                 </Selector>
-                <Selector modelInfo="AboutMe" position={{ x: 135, y: 2, z: -30 }} target={{ x: 135, y: 2, z: -32 }}>
+
+                <Selector modelInfo="AboutMe" label="About Me" textPosition={[111.5, 30,-65]} position={{ x: 135, y: 2, z: -30 }} target={{ x: 135, y: 2, z: -32 }}>
                   <Me />
                 </Selector>
+
               </Selection>
             </Physics>
           </Suspense>
@@ -109,32 +117,42 @@ export default function App() {
     );
   }
 
-function Selector({ children, modelInfo, position, target }) {
+  function Selector({ children, modelInfo, position, target, label, textPosition }) {
     const { camera } = useThree();
     const store = useStore();
+    const [hovered, setHovered] = useState(false);
 
-    const handlePointerDown = useCallback(() => { 
-      if (!store.modelSelectionEnabled[modelInfo]) return;
-  
-      CameraMove({
-        camera: camera,
-        position: position,
-        targetPosition: target,
-      });
-      setTimeout(() => {
-        store.open = true;
-        store.currentModel = modelInfo;
-        document.exitPointerLock();
-        store.setModelSelectionEnabled(modelInfo, false);
-        setTimeout(() => store.setModelSelectionEnabled(modelInfo, true), 5000);
-      });
-    }, [camera, modelInfo, position, store, target]);
+    const handlePointerDown = useCallback(() => {
+        if (!store.modelSelectionEnabled[modelInfo]) return;
+
+        CameraMove({
+            camera: camera,
+            position: position,
+            targetPosition: target,
+        });
+        setTimeout(() => {
+            store.open = true;
+            store.currentModel = modelInfo;
+            document.exitPointerLock();
+            store.setModelSelectionEnabled(modelInfo, false);
+            setTimeout(() => store.setModelSelectionEnabled(modelInfo, true),0);
+        }, [camera, modelInfo, position, store, target]);
+    });
 
     return (
-      <group onPointerDown={handlePointerDown}>
-        {children}
+      <group onPointerDown={handlePointerDown} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
+          {children}
+          {hovered && (
+              <Billboard position={textPosition}>
+                  <Html transform occlude>
+                      <div className="model-info-label">
+                          {label}
+                      </div>
+                  </Html>
+              </Billboard>
+          )}
       </group>
-    );
-  }
+  );
+}
   
 

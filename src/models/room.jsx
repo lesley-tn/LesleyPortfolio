@@ -116,8 +116,8 @@ export function Room(props) {
           receiveShadow
           geometry={nodes.WindowCill_Material006_0.geometry}
           material={materials['Material.006']}
-          position={[0, 2.208, 0.023]}
-          scale={[0.817, 0.973, 1]}
+          position={[0, 2.1, 0.023]}
+          scale={[0.805, 0.973, 1]}
         />
       </group>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={48.593}>
@@ -126,7 +126,7 @@ export function Room(props) {
           receiveShadow
           geometry={nodes.WoodWall_Material001_0.geometry}
           material={materials['Material.001']}
-          position={[0, 2.128, 0]}
+          position={[0, 2.06, 0]}
           scale={[1, 0.973, 1]}
         />
       </group>
