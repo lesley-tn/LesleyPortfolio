@@ -117,6 +117,8 @@ img {
   margin-top: 20vh;
   margin-bottom: 15vh;
   border-bottom: 2px solid;
+  text-align: center;
+  letter-spacing: 0.1rem;
 }
 .audio_message{
   color: white;

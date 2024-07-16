@@ -50,8 +50,14 @@ export function Loading({ started, progress, onStarted }) {
 
         <ControlKeys />
 
-        <h2> ! <span className='audio_message'>Turn Audio On for Best Experience </span> !</h2>
-
+        <h2> ! <span className='audio_message'>Turn Audio On for Best Experience </span> !
+        <br/>
+        <span className='audio_message'>
+          Look <span role="img" aria-label="look">&#128064;</span> and Click 
+          <span role="img" aria-label="click">&#128433;</span> Around to Explore Lesley's Portfolio
+          </span>
+        </h2>
+        
         <div className="loading__progress">
           <div
             className="loading__progress__value"
