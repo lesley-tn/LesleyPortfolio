@@ -43,12 +43,6 @@ export function Piano(props) {
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Object_57.geometry}
-          material={materials.aiStandardSurface6SG}
-        />
-        <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Object_58.geometry}
           material={materials.aiStandardSurface7SG}
         />
@@ -75,7 +69,7 @@ export function Piano(props) {
         castShadow
         receiveShadow
         geometry={nodes.sheet.geometry}
-        material={materials['Material.011']}
+        material={materials['Material.005']}
         position={[4.612, 110.325, -41.382]}
         rotation={[-2.819, -0.047, 3.132]}
       />
@@ -83,7 +77,7 @@ export function Piano(props) {
         castShadow
         receiveShadow
         geometry={nodes.transparentWindowFront001.geometry}
-        material={materials['Material.012']}
+        material={materials['Material.014']}
         position={[4.55, 85.415, 2.354]}
         rotation={[-Math.PI, 0, Math.PI / 2]}
         scale={[-0.436, -11.696, -0.183]}

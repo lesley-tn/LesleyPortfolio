@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
 
-import FocuStudyScreen from '/models/FocuStudyScreen.glb';
+import FocuStudyScreen from '/models/screen.glb';
 
 extend({ ShaderMaterial: THREE.ShaderMaterial });
 
@@ -93,9 +93,9 @@ export function VideoScreen(props) {
         castShadow
         receiveShadow
         geometry={nodes.screen.geometry}
-        position={[0.005, 0.028, -0.031]}
-        rotation={[0.376, 0, 0]}
-        scale={0.01}
+        position={[0.01, 0.17, -0.001]}
+        rotation={[1.571, -1.179, 1.571]}
+        scale={[0.21, 0.206, 0.2]}
       />
     </group>
   );

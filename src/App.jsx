@@ -48,21 +48,21 @@ export default function App() {
                 
                 <Selector modelInfo="Twentee" label="Unity Game" textPosition={[-75, 6, 72.5]} position={{ x: -50, y: 0, z: 55 }} target={{ x: -75, y: 0, z: 55 }}>
                   <ModelLoader
-                    modelPath="/models/Twentee.glb"
-                    position={[-75, -16, 78.2]}
-                    rotation={[0, -Math.PI / 2, 0]}
-                    scale={90}
+                    modelPath="/models/twentee.glb"
+                    position={[-72, -14, 73.2]}
+                    rotation={[0, 0, 0]}
+                    scale={5}
                   />
                 </Selector>
 
                 <Selector modelInfo="FocuStudy"  label="UX/UI Design" textPosition={[78, 9, 137.5]} position={{ x: 50, y: 0, z: 156 }} target={{ x: 75, y: 0, z: 156 }}>
                   <ModelLoader
-                    modelPath="/models/FocuStudy.glb"
-                    position={[75, -16, 137]}
-                    rotation={[0, Math.PI / 2, 0]}
-                    scale={120}
+                    modelPath="/models/iphone.glb"
+                    position={[72, -14, 137]}
+                    rotation={[0,Math.PI , 0]}
+                    scale={5.5}
                   />
-                  <VideoScreen scale={120} position={[75, -16, 137]} rotation={[0, Math.PI / 2, 0]} />
+                  <VideoScreen scale={5.5} position={[72, -14, 137]} rotation={[0, Math.PI , 0]} />
                 </Selector>
 
                 <Selector modelInfo="Predict" label="Webapp Development" textPosition={[ 0,  8, 180]} position={{ x: -20, y: 0, z: 154 }} target={{ x: -20, y: 0, z: 170}}>
