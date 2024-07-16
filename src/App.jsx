@@ -48,7 +48,7 @@ export default function App() {
                 
                 <Selector modelInfo="Twentee" label="Unity Game" textPosition={[-75, 6, 72.5]} position={{ x: -50, y: 0, z: 55 }} target={{ x: -75, y: 0, z: 55 }}>
                   <ModelLoader
-                    modelPath="/models/twentee.glb"
+                    modelPath="/models/Twentee.glb"
                     position={[-72, -14, 73.2]}
                     rotation={[0, 0, 0]}
                     scale={5}
